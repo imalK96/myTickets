@@ -1,0 +1,144 @@
+body{
+	background-color:#f4f4f4;
+	color:#555;
+	font-family:Arial, Helevetica, sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0;
+}
+
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+	
+}
+
+#logo{
+	float: left;
+	width: 85%;
+	background-color: #071229;
+}
+#button{
+	float: right;
+	width: 85%;
+	background-color: #071229;
+}
+
+.movies{
+	background-color:black;
+	float: left;
+	width: 69.7%;
+	padding-top: 0px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+	padding-left: 50px;
+	margin-bottom: 8px;
+}
+
+.upmovies{
+		background-color:black;
+		float: left;
+		width: 69.7%;
+		padding-top: 0px;
+		padding-right: 50px;
+		padding-bottom: 30px;
+		padding-left: 50px;
+}
+
+.promotions{
+	background-color:#071229;
+	float: right;
+	width: 25%;
+}
+
+h2{
+	color: white;
+	text-align: center;
+}
+hr{
+	color: white;
+}
+
+#main-header{
+	background-color:#071229;
+	color:#fff;
+	
+}
+#navbar{
+	background-color:#333;
+	color:#fff;
+}
+#navbar ul{
+	padding:0;
+	list-style:none;
+}
+#navbar li{
+	display:inline;
+}
+#navbar a{
+	color:#fff;
+	text-decoration:none;
+	font-size:18px;
+	padding-right:13px;
+}
+#navbar input{
+	float:right;
+}
+#main-footer{
+	background:#333;
+	color:white;
+	padding:20px;
+	margin-top:40px;
+	
+}
+#main-footer p{
+	display:inline;
+	padding-right:100px;
+}
+#main-footer a{
+	text-decoration:none;
+	float:right;
+}
+a{
+	text-decoration:none;
+	padding:2px;
+}
+a:hover{
+	color:red;
+}
+a:visited{
+	color:white;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 white;
+    transition: 0.3s;
+	width: 14%;
+	text-align: center;
+	float:left;
+	margin-right: 160px;
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 white;
+}
+
+.cardContainer {
+    padding: 2px 16px;
+}
+
+.buttons {
+    background-color: #a6b1c1; /* Green */
+    border: none;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12px;
+}
+
