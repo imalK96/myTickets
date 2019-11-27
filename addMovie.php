@@ -26,7 +26,7 @@
 			$movie_list .= "<td>{$movie['end_Date']}</td>";
 			$movie_list .= "<td><img class = 'tableImg' src = {$movie['img_Path']}></td>";
 			
-			$movie_list .= "<td><button class = 'btn btn-light'><a class = 'disableBtnLink' href = \"editUser.php?movie_ID={$movie['movie_ID']}\">Edit</a></></td>";
+			$movie_list .= "<td><button class = 'btn btn-light'><a class = 'disableBtnLink' href = \"editMovie.php?movie_ID={$movie['movie_ID']}\">Edit</a></></td>";
 
 			$movie_list .= "<td><button class = 'btn btn-light'><a class = 'disableBtnLink' href = \"deleteUser.php?movie_ID={$movie['movie_ID']}\">Remove</a></></td>";
 			$movie_list .= "<tr>";
@@ -245,6 +245,8 @@
 				  		?>
 				  		
 				  		<form  action="addMovie.php" method="POST" enctype="multipart/form-data">
+
+				  						
                                                                                 
                                         <div class="form-group">
                                                     <label >Movie Title</label>

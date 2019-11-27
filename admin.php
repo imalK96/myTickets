@@ -18,9 +18,9 @@
 	<h1>Admin Panel</h1>
 	<ul>
 	<li><a href="userManagement.php">User management</a></li>
-	<li><a href="#">Movie management</a></li>
+	<li><a href="addMovie.php">Movie management</a></li>
 	<li><a href="#">Booking management</a></li>
-	<li><a href="#">Showtime management</a></li>
+	<li><a href="showtime.php">Showtime management</a></li>
 	</ul>
 
 	<?php include 'footer.html';?>

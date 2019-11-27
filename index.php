@@ -1,6 +1,19 @@
 <?php session_start(); ?>
 <?php require_once('Includes/dbconnect.php'); ?>
 
+<?php
+
+
+	$query = "SELECT * FROM movie";
+
+	$movies = mysqli_query($connection, $query);
+
+	$num_rows = mysqli_num_rows($movies);
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +79,10 @@
         .btn-primary{
         	margin-left: 20px;
         }
+        a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+}
 
 	</style>
 
@@ -114,7 +131,7 @@
 			        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link text-light" href="#">Book Now</a>
+			        <a class="nav-link text-light" href="bookings.php">Book Now</a>
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link text-light" href="#">Showtimes</a>
@@ -160,41 +177,30 @@
 			</nav>
 		</header>
 
+<!--main cards movies-->
 
 		<div class="container-fluid text-center ">
-	    <div class="row flex-row flex-nowrap">
-	        <div class="col-3">
+	    <div class="row flex-row ">
+	   
+
+	    	<?php while ($movie = mysqli_fetch_assoc($movies)) {
+	    	
+	    	?>
+	       <div class="col d-flex align-items-stretch">
 	            <div class="card card-block card-body">
-	            	<img src="./Images/MI_cover.jpg" alt="Avatar" style="width:100%">
+	            	 <?php echo "<a class= 'custom-card' href = \"bookings.php?movie_ID={$movie['movie_ID']}\">"; ?>
+	            	<img src=<?php echo $movie['img_Path']; ?> alt="Avatar" style="width:100%; ">
 	                <div class="cardContainer">
-	                  <h5><b>Mission Impossible <br/> Fallout</b></h5> 
+	                  <h5><b><?php echo $movie['movie_Name']; ?></b></h5> <br>
+	                  <button class="btn btn-primary">Book Now</button>
 	                </div>
+	                </a>
 	            </div>
 	        </div>
-	        <div class="col-3">
-	            <div class="card card-block card-body">
-	            	<img src="./Images/HT_cover.jpg" alt="Avatar" style="width:100%">
-	                <div class="cardContainer">
-	                  <h5><b>Hotel Transylvania <br/> 3</b></h5> 
-	                </div>
-	            </div>
-	        </div>
-	        <div class="col-3">
-	            <div class="card card-block card-body">
-	            	<img src="./Images/JW_cover.jpg" alt="Avatar" style="width:100%">
-	                <div class="cardContainer">
-	                  <h5><b>Jurassic world <br/> Fallen Kingdom</b></h5> 
-	                </div>
-	            </div>
-	        </div>
-	        <div class="col-3 ">
-	            <div class="card card-block card-body">
-	            	<img src="./Images/MM_cover.jpg" alt="Avatar" style="width:100%">
-	                <div class="cardContainer">
-	                  <h5><b>Mamma Mia<br/> 2</b></h5> 
-	                </div>
-	            </div>
-	        </div>
+	        	    <?php } ?>
+	        
+	        
+
 	      
 	    </div>
 </div>
