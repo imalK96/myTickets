@@ -13,7 +13,7 @@
 		$movie_date = mysqli_real_escape_string($connection, $_GET['date']);
 
 		
-		$seats_query = "SELECT * FROM seats";
+		$seats_query = "SELECT * FROM seats WHERE seatName NOT IN (SELECT seatID FROM reservations WHERE date = '$movie_date' AND showtime = $movie_showtime)";
 
 		$seat_resultset = mysqli_query($connection, $seats_query);
 
@@ -119,11 +119,17 @@
 		  						  <label class="form-check-label" for="materialInline1"><?php echo $seat['seatName'] ?></label>
 		  						</div>                       
 	                          	
-	                        <?php } ?>            
+	                        <?php } if ($num_seats == 0) {
+	                        	echo '<p class = errmsg>All seats have been reserved for this showtime</p>';
+	                        	echo '<button class = btn btn-primary>Select another showtime</button>';
+
+	                        } else { ?>            
 	                          
 	                            <div class="form-group">
 	                            	<input type="submit" id="submit" name="submit" value="Confirm" class="btn btn-primary">
 	                            </div>
+
+	                        <?php } ?>
 	                             
                                          
 

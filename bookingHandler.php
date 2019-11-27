@@ -49,29 +49,34 @@
 			    if ($result) {
 			    	echo "Success";
 
-			    	$queryUser = "SELECT * FROM users WHERE userID = $userID LIMIT 1";
-			    	$result2 = mysqli_query($connection, $query);
+			    	foreach ($seats as $seat) {
+			    		$insert_seat_query = "INSERT INTO reservations VALUES ('$seat', '$date', $showtime)";
+			    		$insert_seat_query_result = mysqli_query($connection, $insert_seat_query);
+			    	}
 
-			    	$user = mysqli_fetch_assoc($result2);
+			    	// $queryUser = "SELECT * FROM users WHERE userID = $userID LIMIT 1";
+			    	// $result2 = mysqli_query($connection, $query);
 
-			    	$email = $user['email'];
+			    	// $user = mysqli_fetch_assoc($result2);
 
-			    	// the message
-			    	$msg = "Your booking has been confirmed!\nPlease provide this receipt at counter";
+			    	// $email = $user['email'];
 
-			    	$msg .= "\nMovie Name : "  . $movieName;
-			    	$msg .= "\nReservation Date : "  . $date;
-			    	$msg .= "\nMovie Showtime : "  . $showtime;
-			    	$msg .= "\nSeats : "  . $seatString;
-			    	$msg .= "\nCost : "  . $cost;
+			    	// // the message
+			    	// $msg = "Your booking has been confirmed!\nPlease provide this receipt at counter";
+
+			    	// $msg .= "\nMovie Name : "  . $movieName;
+			    	// $msg .= "\nReservation Date : "  . $date;
+			    	// $msg .= "\nMovie Showtime : "  . $showtime;
+			    	// $msg .= "\nSeats : "  . $seatString;
+			    	// $msg .= "\nCost : "  . $cost;
 
 
 
 			    	// use wordwrap() if lines are longer than 70 characters
-			    	$msg = wordwrap($msg,70);
+			    	//$msg = wordwrap($msg,70);
 
 			    	// send email
-			    	mail($email, "MyTickets - Booking Confirmation",$msg);
+			    	//mail($email, "MyTickets - Booking Confirmation",$msg);
 
 			    	header('Location : index.php?Booking_successful');
 
